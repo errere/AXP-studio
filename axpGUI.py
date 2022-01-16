@@ -416,7 +416,12 @@ def chk(a):
 
 def task():
     nctx = 0;
-    ser=serial.Serial("COM3",115200,timeout=5)
+    if(len(sys.argv) == 1):
+        ser=serial.Serial("COM3",115200,timeout=5)
+    else:
+        ser=serial.Serial(sys.argv[1],115200,timeout=5)
+        pass
+    
     print("串口详情参数：", ser)
     while(True):
         pstr = ""
